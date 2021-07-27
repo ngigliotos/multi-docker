@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true nickg/react-test npm test
 
 after_success:
-  - docker build -t nickg/multi-client ./client
-  - docker build -t nickg/multi-nginx ./nginx
-  - docker build -t nickg/multi-server ./server
-  - docker build -t nickg/multi-worker ./worker
+  - docker build -t nickgigliotos/multi-client ./client
+  - docker build -t nickgigliotos/multi-nginx ./nginx
+  - docker build -t nickgigliotos/multi-server ./server
+  - docker build -t nickgigliotos/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push nickg/multi-client
-  - docker push nickg/multi-nginx
-  - docker push nickg/multi-server
-  - docker push nickg/multi-worker
+  - docker push nickgigliotos/multi-client
+  - docker push nickgigliotos/multi-nginx
+  - docker push nickgigliotos/multi-server
+  - docker push nickgigliotos/multi-worker
